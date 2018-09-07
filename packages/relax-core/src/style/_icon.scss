@@ -1,0 +1,14 @@
+@import 'layout';
+@import 'color';
+
+.ux-icon{
+    @include inherited();
+}
+.use-spaced-icon{
+    ::before{
+        content: "&nbsp";
+    }
+    ::after{
+        content: "&nbsp";
+    }
+}

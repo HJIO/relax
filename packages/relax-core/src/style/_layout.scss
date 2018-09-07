@@ -1,0 +1,63 @@
+$unit: 2rem;
+$alignOptions: (left, right, center);
+$justify-content: (start, end, center, between, around);
+
+@mixin inherited() {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+@for $i from 1 through 24 {
+  .fixed-height-#{$i} {
+    height: $unit * $i;
+  }
+  //.fixed-height-#{$i} .ux-col{
+  //  height:100%;
+  //}
+}
+@each $option in $alignOptions {
+  .use-text-align-#{$option} {
+    text-align: $option;
+  }
+}
+
+@each $item in $justify-content {
+  .config-flex-justify-#{$item} {
+    justify-content: #{$item};
+  }
+}
+
+.config-flex {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+}
+
+.config-flex-align-items-center {
+  align-items: center;
+}
+
+.config-block {
+  display: block;
+}
+
+.use-tall {
+  height: 100%;
+}
+
+.use-vertical-middle {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.use-horizontal-middle {
+  position: absolute;
+  left: 50%;
+  margin: auto;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}

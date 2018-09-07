@@ -1,0 +1,86 @@
+$common: (
+        'black':#000000,
+        'white':#ffffff,
+);
+$grey: (
+        900:#333333,
+        800:#444444,
+        600:#858585,
+        500:#c8c9cb,
+        400:#f2f2f2,
+        300:#f7f7f7,
+        200:#fafafa
+);
+$blue: (
+        apple-linear-button-blue:linear-gradient(#51a9ee, #147bcd),
+        apple-button-blue-800:#147bcd,
+        apple-button-blue-600:#51a9ee
+);
+$yellow:(apple-ios-alert: #e5b82b);
+$red: (apple-product-red:#ae1328);
+
+$primaryTheme: (
+        'font':map-get($map: $common, $key: 'black'),
+        'card-bg':map-get($map: $grey, $key: 400),
+        'dark-bg':map-get($map: $grey, $key: 900),
+        'dark-hover':map-get($map: $grey, $key: 600),
+        'disabled':map-get($map: $grey, $key: 500),
+        'border':map-get($map: $grey, $key: 400),
+        'body-bg':map-get($map: $grey, $key: 200),
+        'primary':map_get($blue, apple-button-blue-800),
+        'dangerous':map-get($red, apple-product-red),
+        'alert':map-get($yellow, apple-ios-alert)
+);
+$themeList : (primary, dangerous, alert, default);
+@each $theme in $themeList {
+  .use-theme-#{$theme} {
+    background-color: map-get($primaryTheme, $theme)!important;
+    @extend .use-color-font-white-trans;
+  }
+}
+
+
+.use-color-primary-font {
+  color: map-get($primaryTheme, 'primary');
+}
+
+.use-color-dark-bg {
+  background-color: map-get($primaryTheme, 'dark-bg');
+}
+
+.use-color-font {
+  color: map-get($primaryTheme, 'font');
+}
+
+.use-color-font-white-trans {
+  * {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  color: rgba(255, 255, 255, 0.85);
+
+}
+.use-color-font-white {
+  * {
+    color: white;
+  }
+  color: white;
+
+}
+
+
+.use-color-card-bg {
+  background-color: map-get($primaryTheme, 'card-bg');
+}
+
+.use-color-disabled {
+  color: map-get($primaryTheme, 'disabled');
+}
+
+.use-color-border {
+  border-color: map-get($primaryTheme, 'border');
+}
+
+.use-color-body-bg {
+  background-color: map-get($primaryTheme, 'body-bg');
+}
+

@@ -1,0 +1,39 @@
+@import 'color';
+@import 'layout';
+@import 'suits';
+
+.ux-nav {
+  @extend .use-color-font;
+  @extend .use-shadow-0;
+  z-index: 499;
+  position: relative;
+  background-color: white;
+}
+
+.use-fixed-nav {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  @extend .use-blur-background;
+  @extend .use-shadow-0;
+}
+
+nav * {
+  @include inherited
+}
+
+.ux-nav a {
+  @extend .use-color-font;
+  &:hover {
+    @extend .use-color-disabled;
+  }
+}
+.ux-nav .use-color-font-white-trans{
+  * {
+    @extend .use-color-font-white-trans;
+  }
+  a:hover {
+    @extend .use-color-font-white;
+  }
+}

@@ -1,0 +1,96 @@
+@import 'layout';
+
+$breakpoints-preset: ('xs':(min-width:0, max-width:768px, grid-width:100%), 'sm':(min-width:768px, max-width:992px, grid-width:750px), 'md':(min-width:992px, max-width:1200px, grid-width:970px), 'lg':(min-width:1200px, grid-width:1170px));
+.ux-grid {
+  padding-left: .5rem;
+  padding-right: .5rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.ux-row {
+  height: auto;
+  position: relative;
+  margin-left: -.5rem;
+  margin-right: -.5rem;
+}
+
+.ux-flex {
+  display: flex;
+  display: -webkit-flex;
+}
+
+.ux-row::after {
+  @extend .clearfix-after;
+  display: block;
+}
+
+.config-fluid {
+  width: 100%!important;
+}
+
+
+.clearfix-after {
+  visibility: hidden;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+@mixin column-default {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: auto;
+  min-height: 1px;
+  padding-left: .5em;
+  padding-right: .5em;
+  position: relative;
+  float: left;
+}
+
+@mixin make-col($breakpoint-name) {
+  @for $i from 1 through 12 {
+    .#{$breakpoint-name}-#{$i} {
+      @include column-default();
+      width: ($i/12) * 100%;
+    }
+  }
+  @for $i from 1 through 24 {
+    .config-precision .#{$breakpoint-name}-#{$i} {
+      @include column-default();
+      width: ($i/24) * 100%;
+    }
+  }
+}
+
+@each $breakpoint-name,
+$breakpoint-val in $breakpoints-preset {
+  $min-width: map-get($map: $breakpoint-val, $key: min-width);
+  $max-width: map-get($map: $breakpoint-val, $key: max-width);
+  $grid-width: map-get($map: $breakpoint-val, $key: grid-width);
+  @media screen and (min-width: $min-width) {
+    @include make-col($breakpoint-name);
+    .ux-grid {
+      width: $grid-width;
+      display: block;
+    }
+  }
+  @if ($breakpoint-name != 'lg') {
+    @media screen and (min-width: $min-width) and (max-width: $max-width) {
+      .#{$breakpoint-name}-#{0} {
+        display: none !important;
+      }
+    }
+
+  } @else {
+    @media screen and (min-width: $min-width) {
+      .#{$breakpoint-name}-#{0} {
+        display: none !important;
+      }
+    }
+  }
+
+}

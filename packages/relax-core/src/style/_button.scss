@@ -1,0 +1,29 @@
+@import "color";
+@import "suits";
+.frame-button {
+  display: flex;
+  *{
+    font-weight: 500;
+  }
+  justify-content: center;
+  align-items: center;
+  float: left;
+  padding: .3rem 1rem;
+  margin: 1rem 1rem 0 0;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+  min-width: 107px;
+  height: 40px;
+  @extend .use-shadow-0;
+  &:hover{
+    @extend .use-shadow-1;
+  }
+  &:active{
+    @extend .use-shadow-2;
+  }
+}
+
+
