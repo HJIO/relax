@@ -1,6 +1,6 @@
 
 
-# The relaxUX Introduction
+# The RelaxJS Introduction
 
 
 
@@ -21,7 +21,7 @@ npm install relax
 #### or directly using a CDN web distribution
 
 ```html
-<script src="https://cdn.relaxjs.org/latest/relaxux.js"></script>
+<script src="https://cdn.relaxjs.org/latest/RelaxJS.js"></script>
 ```
 
 ## Hello World
@@ -47,7 +47,7 @@ ReactDOM.render(greeting, document.getElementById("root"));
 | `Struct` | Object | `menuStruct` |
 
 ### UXBuilder
-UXBuilder is an relaxUX component builder for customized components. Here is a basic example for `UXBuilder`:
+UXBuilder is an RelaxJS component builder for customized components. Here is a basic example for `UXBuilder`:
 
 ```jsx
 import UX from 'relax/UXBuilder';
@@ -68,7 +68,7 @@ class MyComponent extends Component {
 UX.build(VDOM)
 ```
 
-> JSX here supports all types of elements and components, NOT ONLY relaxUX.
+> JSX here supports all types of elements and components, NOT ONLY RelaxJS.
 
 ##CSS Class Naming Convention
 
